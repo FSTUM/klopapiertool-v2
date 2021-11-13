@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+    name: template_url.frank.elsinga.de
+    namespace: template_project
+spec:
+    commonName: template_url.frank.elsinga.de
+    dnsNames:
+        - template_url.frank.elsinga.de
+    secretName: template_url.frank.elsinga.de
+    issuerRef:
+        name: letsencrypt-production
+        kind: ClusterIssuer

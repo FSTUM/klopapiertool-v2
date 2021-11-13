@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: template_project-app
+    labels:
+        app: template_project
+    namespace: template_project
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: template_project
+    template:
+        metadata:
+            labels:
+                app: template_project
+        spec:
+            volumes:
+                - name: shared-mediafiles
+                  persistentVolumeClaim:
+                      claimName: template_project-mediafiles-pvc
+            containers:
+                - name: nginx-container
+                  image: nginx
+                  ports:
+                      - containerPort: 80
+                        name: mediafiles-srv
+                  volumeMounts:
+                      - name: shared-mediafiles
+                        mountPath: /usr/share/nginx/html/media
+                - name: template_project
+                  image: ghcr.io/fstum/template_project-staging:main
+                  imagePullPolicy: Always
+                  envFrom:
+                      - secretRef:
+                            name: template_project-secret
+                      - configMapRef:
+                            name: template_project-config
+                  ports:
+                      - containerPort: 8000
+                        name: gunicorn
+                  volumeMounts:
+                      - name: shared-mediafiles
+                        mountPath: /code/media
