@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: template_project-pv
-    namespace: template_project
+    name: klopapier-pv
+    namespace: klopapier
     labels:
-        app: template_project
+        app: klopapier
         type: local
 spec:
     storageClassName: manual
@@ -14,4 +14,4 @@ spec:
     accessModes:
         - ReadWriteOnce
     hostPath:
-        path: '/mnt/data/template_project'
+        path: '/mnt/data/klopapier'

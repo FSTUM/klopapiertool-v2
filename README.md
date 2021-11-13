@@ -3,8 +3,8 @@
 0. Clone and go into the cloned directory
 
 ```
-git clone https://github.com/FSTUM/template_project.git
-cd template_project
+git clone https://github.com/FSTUM/klopapiertool-v2.git
+cd klopapiertool-v2
 ```
 
 1. Install system dependencies
@@ -102,7 +102,7 @@ nessesary files to git.**
 
 # Staging
 
-An staging environment is offered at template_url.frank.elsinga.de
+An staging environment is offered at klopapier.frank.elsinga.de
 The username is password
 The password is username
 
@@ -120,13 +120,13 @@ DJANGO_ALLOWED_HOSTS="0.0.0.0,localhost,127.0.0.1"
 2. Build the dockerfile
 
 ```
-docker build -t template_project-staging:v1 .
+docker build -t klopapier-staging:v1 .
 ```
 
 3. Run the Dockerfile
 
 ```
-docker run --env-file staging/.env -p 8080:8000 template_project-staging:v1
+docker run --env-file staging/.env -p 8080:8000 klopapier-staging:v1
 ```
 
 The Staging instance is now availibe at [`127.0.0.1:8080`](http://127.0.0.1:8080/) and is pushed to the Github Container Registry for convinience.

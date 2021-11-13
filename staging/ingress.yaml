@@ -1,25 +1,25 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-    name: template_project-ingress
+    name: klopapier-ingress
     labels:
-        app: template_project
-    namespace: template_project
+        app: klopapier
+    namespace: klopapier
 spec:
     entryPoints:
         - websecure
     routes:
         - kind: Rule
-          match: Host(`template_url.frank.elsinga.de`) && PathPrefix(`/media/`)
+          match: Host(`klopapier.frank.elsinga.de`) && PathPrefix(`/media/`)
           priority: 11
           services:
-              - name: template_project-svc
+              - name: klopapier-svc
                 port: 7000
         - kind: Rule
-          match: Host(`template_url.frank.elsinga.de`)
+          match: Host(`klopapier.frank.elsinga.de`)
           priority: 10
           services:
-              - name: template_project-svc
+              - name: klopapier-svc
                 port: 8000
     tls:
-        secretName: template_url.frank.elsinga.de
+        secretName: klopapier.frank.elsinga.de

@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-    name: template_url.frank.elsinga.de
-    namespace: template_project
+    name: klopapier.frank.elsinga.de
+    namespace: klopapier
 spec:
-    commonName: template_url.frank.elsinga.de
+    commonName: klopapier.frank.elsinga.de
     dnsNames:
-        - template_url.frank.elsinga.de
-    secretName: template_url.frank.elsinga.de
+        - klopapier.frank.elsinga.de
+    secretName: klopapier.frank.elsinga.de
     issuerRef:
         name: letsencrypt-production
         kind: ClusterIssuer

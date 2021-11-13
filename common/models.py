@@ -8,7 +8,7 @@ from django.utils import timezone
 from django.utils.deconstruct import deconstructible
 from django.utils.translation import ugettext_lazy as _
 
-from template_project.settings import SEMESTER_SESSION_KEY
+from klopapier.settings import SEMESTER_SESSION_KEY
 
 SingletonType = TypeVar("SingletonType", bound="SingletonModel")
 

@@ -1,5 +1,5 @@
 {
-    "name": "template_project",
+    "name": "klopapier",
     "version": "1.0.0",
     "description": "PROJECT_DESCRIPTION",
     "main": "index.js",
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://git.fs.tum.de/elsinga/template_project"
+        "url": "https://git.fs.tum.de/elsinga/klopapiertool-v2"
     },
     "author": "FSMPI",
     "license": "AGPL-3.0-or-later",

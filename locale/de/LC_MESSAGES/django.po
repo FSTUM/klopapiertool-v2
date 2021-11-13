@@ -6,11 +6,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: template_project/settings.py:89
+#: klopapier/settings.py:89
 msgid "German"
 msgstr "Deutsch"
 
-#: template_project/settings.py:90
+#: klopapier/settings.py:90
 msgid "English"
 msgstr "Englisch"
 

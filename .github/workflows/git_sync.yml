@@ -16,8 +16,8 @@ jobs:
             - name: git-sync
               uses: wei/git-sync@v3
               with:
-                  source_repo: 'CommanderStorm/template_project'
+                  source_repo: 'CommanderStorm/klopapier'
                   source_branch: 'main'
-                  destination_repo: 'git@git.fs.tum.de:elsinga/template_project.git'
+                  destination_repo: 'git@git.fs.tum.de:elsinga/klopapiertool-v2.git'
                   destination_branch: 'main'
                   ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}

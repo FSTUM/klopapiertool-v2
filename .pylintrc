@@ -2,7 +2,7 @@
 ignore=static,manage.py
 jobs=1
 load-plugins=pylint_django
-django-settings-module=template_project.settings
+django-settings-module=klopapier.settings
 
 [MESSAGES CONTROL]
 disable=missing-function-docstring, # too much work

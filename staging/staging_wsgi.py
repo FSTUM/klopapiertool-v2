@@ -1,5 +1,5 @@
 """
-WSGI config for template_project project.
+WSGI config for klopapier project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

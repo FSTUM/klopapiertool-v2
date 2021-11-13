@@ -1,16 +1,16 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-    name: template_project-ingress-http
+    name: klopapier-ingress-http
     labels:
-        app: template_project
-    namespace: template_project
+        app: klopapier
+    namespace: klopapier
 spec:
     entryPoints:
         - web
     routes:
         - kind: Rule
-          match: Host(`template_url.frank.elsinga.de`)
+          match: Host(`klopapier.frank.elsinga.de`)
           services:
               - name: noop@internal
                 kind: TraefikService

@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: template_project-app
+    name: klopapier-app
     labels:
-        app: template_project
-    namespace: template_project
+        app: klopapier
+    namespace: klopapier
 spec:
     replicas: 1
     selector:
         matchLabels:
-            app: template_project
+            app: klopapier
     template:
         metadata:
             labels:
-                app: template_project
+                app: klopapier
         spec:
             volumes:
                 - name: shared-mediafiles
                   persistentVolumeClaim:
-                      claimName: template_project-mediafiles-pvc
+                      claimName: klopapier-mediafiles-pvc
             containers:
                 - name: nginx-container
                   image: nginx
@@ -28,14 +28,14 @@ spec:
                   volumeMounts:
                       - name: shared-mediafiles
                         mountPath: /usr/share/nginx/html/media
-                - name: template_project
-                  image: ghcr.io/fstum/template_project-staging:main
+                - name: klopapier
+                  image: ghcr.io/fstum/klopapier-staging:main
                   imagePullPolicy: Always
                   envFrom:
                       - secretRef:
-                            name: template_project-secret
+                            name: klopapier-secret
                       - configMapRef:
-                            name: template_project-config
+                            name: klopapier-config
                   ports:
                       - containerPort: 8000
                         name: gunicorn

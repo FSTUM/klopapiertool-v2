@@ -4,7 +4,7 @@
 
 import logging.config
 
-from template_project.settings import *
+from klopapier.settings import *
 
 # staticfiles
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
