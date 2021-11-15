@@ -1,0 +1,25 @@
+{% extends "challenges/challenges_base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block klopapier_common_headercontent %}{% trans "Add challenge" %}: {{ challenge.prompt }}{% endblock %}
+
+{% block klopapier_common_content %}
+<form
+    method="post"
+    action=""
+>
+    {% csrf_token %}
+
+    {% bootstrap_form form %}
+
+    <a
+        class="btn btn-secondary"
+        href="{% url "challenges:list_challenges" %}"
+    >{% trans "Cancel" %}</a>
+    <button
+        class="btn btn-primary"
+        type="submit"
+    >{% trans "Add challenge" %}</button>
+</form>
+{% endblock %}

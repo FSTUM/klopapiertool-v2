@@ -1,0 +1,15 @@
+{% extends "base_card_layout.html" %}
+{% load active_link_tags %}
+{% load i18n %}
+
+{% block klopapier_common_navigation %}
+<h4 class="navbar-text">{% trans "Challenges" %}</h4>
+<a
+    class="nav-link {% active_link "challenges:list_challenges" %}"
+    href="{% url "challenges:list_challenges" %}"
+>{% trans "All challenges" %}</a>
+<a
+    class="nav-link {% active_link "challenges:add_challenge" %}"
+    href="{% url "challenges:add_challenge" %}"
+>{% trans "Add challenge" %}</a>
+{% endblock %}

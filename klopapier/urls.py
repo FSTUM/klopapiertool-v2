@@ -14,10 +14,11 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     # Views
     path("common/", include("common.urls")),
+    path("c/", include("challenges.urls")),
     # Admin
     path("admin/", admin.site.urls),
     # Index
-    path("", RedirectView.as_view(pattern_name="common:dashboard"), name="main-view"),
+    path("", RedirectView.as_view(pattern_name="common:index"), name="main-view"),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

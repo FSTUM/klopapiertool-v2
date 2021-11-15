@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "bootstrap_datepicker_plus",
     "active_link",
     "common",
+    "challenges",
 ]
 
 MIDDLEWARE = [

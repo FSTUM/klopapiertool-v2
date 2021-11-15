@@ -1,0 +1,23 @@
+{% extends "base_single_card_layout.html" %}
+{% load django_bootstrap5 %}
+{% load active_link_tags %}
+{% load i18n %}
+
+{% block klopapier_common_headercontent %}{% trans "Challenge:" %} {{ challenge.prompt }}{% endblock %}
+{% block klopapier_common_content %}
+    <p>{{ challenge.description }}</p>
+
+<form
+    method="post"
+    action=""
+>
+    {% csrf_token %}
+
+    {% bootstrap_form form %}
+
+    <button
+        class="btn btn-primary"
+        type="submit"
+    >{% trans "Submit your Solution" %}</button>
+</form>
+{% endblock %}
