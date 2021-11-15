@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import RedirectView
 
 from . import views
@@ -6,6 +6,6 @@ from . import views
 app_name = "common"
 
 urlpatterns = [
-    path("", RedirectView.as_view(pattern_name="common:list_mail"), name="index"),
-    path("dashboard/", views.dashboard, name="dashboard"),
+    path("", RedirectView.as_view(pattern_name="common:leaderboard"), name="index"),
+    path("leaderboard/", views.leaderboard, name="leaderboard"),
 ]

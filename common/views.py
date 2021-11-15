@@ -5,6 +5,8 @@ from django.shortcuts import render
 from common.utils.typing import AuthWSGIRequest
 
 
-@login_required(login_url="login")
-def dashboard(request: AuthWSGIRequest) -> HttpResponse:
-    return render(request, "common/common_dashboard.html")
+def leaderboard(request: AuthWSGIRequest) -> HttpResponse:
+    ideas = []
+
+    context = {"ideas": ideas}
+    return render(request, "common/leaderboard/leaderboard.html", context)
