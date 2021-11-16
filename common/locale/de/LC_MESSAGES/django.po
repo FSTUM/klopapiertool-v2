@@ -6,22 +6,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: common/models.py
-msgid "Winter semester"
-msgstr "Wintersemester"
-
-#: common/models.py
-msgid "Summer semester"
-msgstr "Sommersemester"
-
-#: common/models.py
-msgid "Semester"
-msgstr "Semester"
-
-#: common/models.py
-msgid "Year"
-msgstr "Jahr"
-
 #: common/templates/common/leaderboard/leaderboard.html
 msgid "Leaderboard of ideas"
 msgstr ""

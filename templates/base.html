@@ -4,7 +4,6 @@
 {% load static %}
 {% load i18n %}
 {% load django_bootstrap5 %}
-{% load semester %}
 
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
@@ -108,53 +107,6 @@
                     <div class="d-flex">
 
                         <nav class="navbar-nav me-2">
-                            {# choose semester #}
-                            {% if user.is_authenticated %}
-                            <form
-                                action="{% url "common:set_semester" %}"
-                                method="post"
-                                role="form"
-                            >
-                                <div>
-                                    {% csrf_token %}
-                                    <input
-                                        name="next"
-                                        type="hidden"
-                                        value=""
-                                    />
-
-                                    <select
-                                        class="form-control no-automatic-choicejs"
-                                        name="semester"
-                                        id="semester_selection_form"
-                                        onchange="this.form.submit()"
-                                    >
-                                        {% get_semester as SEMESTER_PK %}
-                                        {% get_available_semesters as semesters %}
-                                        {% for semester in semesters %}
-                                        <option
-                                            value="{{ semester.pk }}"
-                                            {% if semester.pk == SEMESTER_PK %}selected="selected"
-                                            {% endif %}
-                                        >
-                                            {{ semester }}
-                                        </option>
-                                        {% endfor %}
-                                    </select>
-                                    <label
-                                        for="semester_selection_form"
-                                        style="display: none;"
-                                    >{% trans "Select your semester" %}</label>
-                                </div>
-                                <noscript>
-                                    <button
-                                        type="submit"
-                                        class="btn btn-secondary"
-                                    >{% trans "Switch semester" %}</button>
-                                </noscript>
-                            </form>
-                            {% endif %}
-                            {# end choose semester #}
                             {# login #}
                             {% if user.is_authenticated %}
                             <li class="nav-item">

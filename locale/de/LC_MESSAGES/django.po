@@ -114,14 +114,6 @@ msgid "Management"
 msgstr ""
 
 #: templates/base.html
-msgid "Select your semester"
-msgstr "Whle dein Semester aus"
-
-#: templates/base.html
-msgid "Switch semester"
-msgstr "Semester ändern"
-
-#: templates/base.html
 #, python-format
 msgid "Log out %(username)s"
 msgstr "%(username)s ausloggen"
