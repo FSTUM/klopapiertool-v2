@@ -6,22 +6,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: common/models.py:55
+#: common/models.py
 msgid "Winter semester"
 msgstr "Wintersemester"
 
-#: common/models.py:56
+#: common/models.py
 msgid "Summer semester"
 msgstr "Sommersemester"
 
-#: common/models.py:59
+#: common/models.py
 msgid "Semester"
 msgstr "Semester"
 
-#: common/models.py:61
+#: common/models.py
 msgid "Year"
 msgstr "Jahr"
 
-#: common/templates/common/common_dashboard.html:4
-msgid "Dashboard"
-msgstr "Dashboard"
+#: common/templates/common/leaderboard/leaderboard.html
+msgid "Leaderboard of ideas"
+msgstr ""
+
+#: common/templates/common/leaderboard/leaderboard.html
+msgid "Idee"
+msgstr ""
+
+#: common/templates/common/leaderboard/leaderboard.html
+msgid "Votes"
+msgstr ""
+
+#: common/templates/common/leaderboard/leaderboard.html
+msgid "Actions"
+msgstr ""
+
