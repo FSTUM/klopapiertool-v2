@@ -33,6 +33,9 @@ class Challenge(models.Model):
 
 
 class ChallengeSecret(models.Model):
+    class Meta:
+        unique_together = ["challenge", "secret"]
+
     challenge = models.ForeignKey(Challenge, on_delete=models.CASCADE)
     secret = models.CharField(max_length=200)
 
