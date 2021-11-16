@@ -95,3 +95,14 @@ class Settings(SingletonModel, LoggedModel):
 
     def __str__(self):
         return f"Settings {self.pk}"
+
+
+class Idea(models.Model):
+    class Meta:
+        ordering = ["-votes"]
+
+    votes = models.PositiveIntegerField()
+    content = models.CharField(max_length=500, unique=True)
+
+    def __str__(self):
+        return f"{self.votes}: {self.content}"
