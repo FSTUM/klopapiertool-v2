@@ -5,28 +5,35 @@
 {% block klopapier_common_headercontent %}{% trans "Edit challenge" %}: {{ challenge.prompt }}{% endblock %}
 
 {% block klopapier_common_content %}
-<div class="col">
-    <div class="row">
-        <h1>{% trans "Secrets:" %}</h1>
+<div class="row">
+    <div class="col-md-6">
+        <h1 class="h3">{% trans "Secrets:" %}</h1>
         {% for secret in challenge.secrets %}
         <p>
             {{ secret }}
         </p>
         {% endfor %}
     </div>
-    <div class="row">
-        <h1>{% trans "URLs:" %}</h1>
-        <h2>{% trans "Standard URL:" %}</h2>
+    <div class="col-md-6">
+        <h1 class="h3">{% trans "URLs:" %}</h1>
+        <h2 class="h4">{% trans "Standard URL:" %}</h2>
         <p>
-            <a href="{{ request.scheme }}://{{ request.get_host }}{{ challenge.url }}">{{ request.scheme }}://{{ request.get_host }}{{ challenge.url }}</a>
-        </p>
+                        <a href="{{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}">
+                            {{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}
+                        </a>
+                    </p>
 
-        <h2>{% trans "Shortened URLs:" %}</h2>
-        {% for url in challenge.short_urls %}
-        <p>
-            <a href="{{ request.scheme }}://{{ request.get_host }}{{ url }}">{{ request.scheme }}://{{ request.get_host }}{{ url }}</a>
-        </p>
-        {% endfor %}
+        <h2 class="h4">{% trans "Shortened URLs:" %}</h2>
+        {% for url in challenge.challengeshortlink_set.all %}
+                    <p>
+                        <a
+                            class="text-muted"
+                            href="{{ request.scheme }}://{{ request.get_host }}{% url "submit_challenge_short_link" url.short_link %}"
+                        >
+                            {{ request.scheme }}://{{ request.get_host }}{% url "submit_challenge_short_link" url.short_link %}
+                        </a>
+                    </p>
+                    {% endfor %}
     </div>
 </div>
 

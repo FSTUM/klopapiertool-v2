@@ -28,17 +28,24 @@
             </tr>
         </thead>
         <tbody>
-            {% for challenge in challenges %}
+           {% for challenge in challenges %}
             <tr>
                 <td>{{ challenge.prompt }}</td>
                 <td>{{ challenge.description }}</td>
                 <td>
                     <p>
-                        <a href="{{ request.scheme }}://{{ request.get_host }}{{ challenge.url }}">{{ request.scheme }}://{{ request.get_host }}{{ challenge.url }}</a>
+                        <a href="{{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}">
+                            {{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}
+                        </a>
                     </p>
-                    {% for url in challenge.short_urls %}
+                    {% for url in challenge.challengeshortlink_set.all %}
                     <p>
-                        <a href="{{ request.scheme }}://{{ request.get_host }}{{ url }}">{{ request.scheme }}://{{ request.get_host }}{{ url }}</a>
+                        <a
+                            class="text-muted"
+                            href="{{ request.scheme }}://{{ request.get_host }}{% url "submit_challenge_short_link" url.short_link %}"
+                        >
+                            {{ request.scheme }}://{{ request.get_host }}{% url "submit_challenge_short_link" url.short_link %}
+                        </a>
                     </p>
                     {% endfor %}
                 </td>
