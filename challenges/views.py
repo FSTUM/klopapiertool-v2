@@ -12,12 +12,12 @@ from common.utils.typing import AuthWSGIRequest
 from common.views import klopapier_staff_member_required
 
 
-def challenge_short_link(request: WSGIRequest, short_link: str) -> HttpResponse:
+def submit_challenge_short_link(request: WSGIRequest, short_link: str) -> HttpResponse:
     challenge_obj: ChallengeShortLink = get_object_or_404(ChallengeShortLink, short_link=short_link)
-    return redirect("challenges:challenges", challenge_obj.challenge)
+    return redirect("challenges:submit_challenge", challenge_obj.challenge)
 
 
-def challenge(request: WSGIRequest, key: str) -> HttpResponse:
+def submit_challenge(request: WSGIRequest, key: str) -> HttpResponse:
     challenge_obj: Challenge = get_object_or_404(Challenge, key=key)
 
     form = UserSolutionSubmissionForm(request.POST or None)

@@ -6,6 +6,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from django.views.generic import RedirectView
 
+from challenges.views import submit_challenge_short_link
+
 urlpatterns = [
     # Auth
     path("login/", LoginView.as_view(template_name="login.html"), name="login"),
@@ -14,7 +16,8 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     # Views
     path("common/", include("common.urls")),
-    path("c/", include("challenges.urls")),
+    path("challenges/", include("challenges.urls")),
+    path("c/<str:short_link>", submit_challenge_short_link, name="submit_challenge_short_link"),
     # Admin
     path("admin/", admin.site.urls),
     # Index

@@ -1,18 +1,19 @@
 from django.urls import include, path
+from django.views.generic import RedirectView
 
 from . import views
 
 app_name = "challenges"
 
 urlpatterns = [
-    path("c/<str:short_link>", views.challenge_short_link, name="challenge_short_link"),
-    path("challenge/<str:key>", views.challenge, name="challenges"),
+    path("challenge/<str:key>/", views.submit_challenge, name="submit_challenge"),
     path(
         "management/",
         include(
             [
+                path("", RedirectView.as_view(pattern_name="challenges:list_challenges"), name="management"),
                 path(
-                    "challange/",
+                    "challenge/",
                     include(
                         [
                             path("list/", views.list_challenges, name="list_challenges"),

@@ -17,17 +17,6 @@ class Challenge(models.Model):
     def secrets(self) -> List[str]:
         return [chs.secret for chs in self.challengesecret_set.all()]
 
-    @property
-    def url(self) -> str:
-        return reverse("challenges:challenges", self.key)
-
-    @property
-    def short_urls(self) -> List[str]:
-        results = []
-        for url in self.challengeshortlink_set.all():
-            results.append(reverse("challenges:challenge_short_link", url.short_link))
-        return results
-
     def __str__(self):
         return f"{self.key}->{self.redirect_action}: [{', '.join(self.secrets)}]"
 
