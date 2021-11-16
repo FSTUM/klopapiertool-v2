@@ -37,9 +37,9 @@
                         <a href="{{ request.scheme }}://{{ request.get_host }}{{ challenge.url }}">{{ request.scheme }}://{{ request.get_host }}{{ challenge.url }}</a>
                     </p>
                     {% for url in challenge.short_urls %}
-                        <p>
-                            <a href="{{ request.scheme }}://{{ request.get_host }}{{ url }}">{{ request.scheme }}://{{ request.get_host }}{{ url }}</a>
-                        </p>
+                    <p>
+                        <a href="{{ request.scheme }}://{{ request.get_host }}{{ url }}">{{ request.scheme }}://{{ request.get_host }}{{ url }}</a>
+                    </p>
                     {% endfor %}
                 </td>
                 <td>

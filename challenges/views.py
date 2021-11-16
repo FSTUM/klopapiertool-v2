@@ -1,13 +1,12 @@
+from django import forms
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import QuerySet
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import ugettext as _
-from django import forms
 
-from challenges.forms import UserSolutionSubmissionForm, ChallengeForm
+from challenges.forms import ChallengeForm, UserSolutionSubmissionForm
 from challenges.models import Challenge, ChallengeShortLink
 from common.utils.typing import AuthWSGIRequest
 from common.views import klopapier_staff_member_required
@@ -52,7 +51,7 @@ def edit_challenge(request: AuthWSGIRequest, challenge_pk: int) -> HttpResponse:
         messages.success(request, _("The Challenge was successfully updated"))
         return redirect("challenges:list_challenges")
 
-    context = {"challenge": challenge_obj, "form": form, }
+    context = {"challenge": challenge_obj, "form": form}
     return render(request, "challenges/management/edit_challenges.html", context)
 
 
@@ -66,7 +65,7 @@ def del_challenge(request: AuthWSGIRequest, challenge_pk: int) -> HttpResponse:
         messages.success(request, _("The Challenge was successfully updated"))
         return redirect("challenges:list_challenges")
 
-    context = {"challenge": challenge_obj, "form": form, }
+    context = {"challenge": challenge_obj, "form": form}
     return render(request, "challenges/management/del_challenges.html", context)
 
 
@@ -78,5 +77,5 @@ def add_challenge(request: AuthWSGIRequest) -> HttpResponse:
         messages.success(request, _("The Challenge was successfully added"))
         return redirect("challenges:list_challenges")
 
-    context = {"form": form, }
+    context = {"form": form}
     return render(request, "challenges/management/add_challenges.html", context)

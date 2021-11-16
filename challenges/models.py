@@ -3,8 +3,6 @@ from typing import List
 from django.db import models
 from django.urls import reverse
 
-from common.utils.typing import AuthWSGIRequest
-
 
 class Challenge(models.Model):
     key = models.CharField(max_length=50, unique=True)
