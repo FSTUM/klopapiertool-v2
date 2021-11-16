@@ -24,7 +24,7 @@ class SingletonModel(models.Model):
     @classmethod
     def load(cls) -> SingletonType:
         obj: SingletonType
-        obj, _ = cls.objects.get_or_create(pk=1)
+        obj, _success = cls.objects.get_or_create(pk=1)
         return obj
 
 

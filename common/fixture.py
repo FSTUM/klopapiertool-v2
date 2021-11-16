@@ -70,7 +70,7 @@ def _generate_challenges():
     for challenge in challenges:
         shortlinks = random.choice([0] * 2 + [1] * 3 + [3] * 4 + [6])
         for _ in range(shortlinks):
-            short_link = "".join([random.choice(string.ascii_lowercase)] * random.randint(5, 10))
+            short_link = "".join([random.choice(string.ascii_lowercase) for _ in range(random.randint(5, 10))])
 
             if not m_challenges.ChallengeShortLink.objects.filter(short_link=short_link).exists():
                 m_challenges.ChallengeShortLink.objects.create(
@@ -80,8 +80,8 @@ def _generate_challenges():
     for challenge in challenges:
         secrets = random.choice([0] + [1] * 3 + [3] * 4 + [6])
         for _ in range(secrets):
-            secret=rand_company_name().lower()
-            if not m_challenges.ChallengeSecret.objects.filter(challenge=challenge,secret=secret).exists():
+            secret = rand_company_name().lower()
+            if not m_challenges.ChallengeSecret.objects.filter(challenge=challenge, secret=secret).exists():
                 m_challenges.ChallengeSecret.objects.create(
                     challenge=challenge,
                     secret=secret,
