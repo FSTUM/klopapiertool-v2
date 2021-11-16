@@ -1,10 +1,8 @@
 import random
 import string
-from subprocess import run  # nosec: used for flushing the db
+from subprocess import run
 
 import django.utils.timezone
-
-# noinspection PyPackageRequirements
 import lorem
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password

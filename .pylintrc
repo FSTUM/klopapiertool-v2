@@ -1,6 +1,6 @@
 [MASTER]
 ignore=static,manage.py
-jobs=1
+jobs=0
 load-plugins=pylint_django
 django-settings-module=klopapier.settings
 
@@ -15,3 +15,4 @@ disable=missing-function-docstring, # too much work
         bad-continuation, #gives weird unreproducible bugs in ci but not locally
         duplicate-code, # gives weird unreproducible bugs in ci but not locally
         fixme, # prevents users from committing things with a TODO in comments. Having more frequent commits is desirable
+enable=useless-suppression

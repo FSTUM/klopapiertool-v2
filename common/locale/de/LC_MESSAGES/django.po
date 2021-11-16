@@ -21,4 +21,3 @@ msgstr ""
 #: common/templates/common/leaderboard/leaderboard.html
 msgid "Actions"
 msgstr ""
-

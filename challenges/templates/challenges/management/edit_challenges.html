@@ -18,22 +18,22 @@
         <h1 class="h3">{% trans "URLs:" %}</h1>
         <h2 class="h4">{% trans "Standard URL:" %}</h2>
         <p>
-                        <a href="{{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}">
-                            {{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}
-                        </a>
-                    </p>
+            <a href="{{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}">
+                {{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}
+            </a>
+        </p>
 
         <h2 class="h4">{% trans "Shortened URLs:" %}</h2>
         {% for url in challenge.challengeshortlink_set.all %}
-                    <p>
-                        <a
-                            class="text-muted"
-                            href="{{ request.scheme }}://{{ request.get_host }}{% url "submit_challenge_short_link" url.short_link %}"
-                        >
-                            {{ request.scheme }}://{{ request.get_host }}{% url "submit_challenge_short_link" url.short_link %}
-                        </a>
-                    </p>
-                    {% endfor %}
+        <p>
+            <a
+                class="text-muted"
+                href="{{ request.scheme }}://{{ request.get_host }}{% url "submit_challenge_short_link" url.short_link %}"
+            >
+                {{ request.scheme }}://{{ request.get_host }}{% url "submit_challenge_short_link" url.short_link %}
+            </a>
+        </p>
+        {% endfor %}
     </div>
 </div>
 

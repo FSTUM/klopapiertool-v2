@@ -1,7 +1,7 @@
+# pylint: disable-next=no-name-in-module
 from typing import List
 
 from django.db import models
-from django.urls import reverse
 
 
 class Challenge(models.Model):
