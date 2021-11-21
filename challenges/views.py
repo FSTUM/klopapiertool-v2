@@ -14,7 +14,7 @@ from common.views import klopapier_staff_member_required
 
 def submit_challenge_short_link(request: WSGIRequest, short_link: str) -> HttpResponse:
     challenge_obj: ChallengeShortLink = get_object_or_404(ChallengeShortLink, short_link=short_link)
-    return redirect("challenges:submit_challenge", challenge_obj.challenge)
+    return redirect("challenges:submit_challenge", challenge_obj.challenge.key)
 
 
 def submit_challenge(request: WSGIRequest, key: str) -> HttpResponse:
