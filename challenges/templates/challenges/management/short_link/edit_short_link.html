@@ -1,0 +1,29 @@
+{% extends "challenges/challenges_base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block klopapier_common_headercontent %}
+    {% blocktrans trimmed with short_link=short_link.short_link challenge=short_link.challenge.prompt%}
+        Edit short-link {{ short_link }} for challenge: {{ challenge }}
+    {% endblocktrans %}
+{% endblock %}
+
+{% block klopapier_common_content %}
+<form
+    method="post"
+    action=""
+>
+    {% csrf_token %}
+
+    {% bootstrap_form form %}
+
+    <a
+        class="btn btn-secondary"
+        href="{% url "challenges:edit_challenge" short_link.challenge.id %}"
+    >{% trans "Cancel" %}</a>
+    <button
+        class="btn btn-warning"
+        type="submit"
+    >{% trans "Edit short-link" %}</button>
+</form>
+{% endblock %}

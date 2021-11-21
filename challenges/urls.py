@@ -23,6 +23,26 @@ urlpatterns = [
                         ],
                     ),
                 ),
+                path(
+                    "secret/",
+                    include(
+                        [
+                            path("edit/<int:secret_pk>/", views.edit_secret, name="edit_secret"),
+                            path("del/<int:secret_pk>/", views.del_secret, name="del_secret"),
+                            path("add/<int:challenge_pk>/", views.add_secret, name="add_secret"),
+                        ],
+                    ),
+                ),
+                path(
+                    "short_link/",
+                    include(
+                        [
+                            path("edit/<int:short_link_pk>/", views.edit_short_link, name="edit_short_link"),
+                            path("del/<int:short_link_pk>/", views.del_short_link, name="del_short_link"),
+                            path("add/<int:challenge_pk>/", views.add_short_link, name="add_short_link"),
+                        ],
+                    ),
+                ),
             ],
         ),
     ),
