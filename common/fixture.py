@@ -34,17 +34,16 @@ def showroom_fixture_state_no_confirmation():
 
 def _generate_ideas():
     for _ in range(random.randint(15, 30)):
-        content = random.choice(
-            [
-                f"{rand_company_name()} for president",
-                f"Could you kindly feature {rand_company_name()} on your next issue? "
-                f"Kindly, {rand_firstname()} {rand_last_name()}",
-                f"{rand_firstname()} enjoyed this",
-                "https://fsmpi.de/aushaenge",
-                "https://fsmpi.de/faq",
-            ]
-            + [f"https://xkcd.com/{random.randint(1, 2542)}/"] * 3,
-        )
+        normal_ideas = [
+            f"{rand_company_name()} for president",
+            f"Could you kindly feature {rand_company_name()} on your next issue? "
+            f"Kindly, {rand_firstname()} {rand_last_name()}",
+            f"{rand_firstname()} enjoyed this",
+            "https://fsmpi.de/aushaenge",
+            "https://fsmpi.de/faq",
+        ]
+        xkcd_idea = [f"https://xkcd.com/{random.randint(1, 2542)}/" for i in range(20)]
+        content = random.choice((random.choice(normal_ideas), random.choice(normal_ideas), random.choice(xkcd_idea)))
         if not m_common.Idea.objects.filter(content=content).exists():
             m_common.Idea.objects.create(
                 votes=random.choice((random.randint(1, 150), 69, random.randint(1, 10), 0, 0)),
@@ -61,7 +60,11 @@ def _generate_challenges():
             m_challenges.Challenge.objects.create(
                 key=key,
                 prompt=lorem.sentence(),
+                prompt_de=lorem.sentence(),
+                prompt_en=lorem.sentence(),
                 description=lorem.paragraph(),
+                description_de=lorem.paragraph(),
+                description_en=lorem.paragraph(),
                 redirect_action=url,
             ),
         )

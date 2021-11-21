@@ -27,58 +27,124 @@ msgid "All challenges"
 msgstr ""
 
 #: challenges/templates/challenges/challenges_base.html
-#: challenges/templates/challenges/management/add_challenges.html
+#: challenges/templates/challenges/management/challenge/add_challenge.html
 msgid "Add challenge"
 msgstr ""
 
-#: challenges/templates/challenges/management/add_challenges.html
-#: challenges/templates/challenges/management/del_challenges.html
-#: challenges/templates/challenges/management/edit_challenges.html
+#: challenges/templates/challenges/management/challenge/add_challenge.html
+#: challenges/templates/challenges/management/challenge/del_challenge.html
+#: challenges/templates/challenges/management/challenge/edit_challenge.html
+#: challenges/templates/challenges/management/secret/add_secret.html
+#: challenges/templates/challenges/management/secret/del_secret.html
+#: challenges/templates/challenges/management/secret/edit_secret.html
+#: challenges/templates/challenges/management/short_link/add_short_link.html
+#: challenges/templates/challenges/management/short_link/del_short_link.html
+#: challenges/templates/challenges/management/short_link/edit_short_link.html
 msgid "Cancel"
 msgstr ""
 
-#: challenges/templates/challenges/management/del_challenges.html
+#: challenges/templates/challenges/management/challenge/del_challenge.html
 msgid "Delete challenge"
 msgstr ""
 
-#: challenges/templates/challenges/management/edit_challenges.html
+#: challenges/templates/challenges/management/challenge/edit_challenge.html
 msgid "Edit challenge"
 msgstr ""
 
-#: challenges/templates/challenges/management/edit_challenges.html
+#: challenges/templates/challenges/management/challenge/edit_challenge.html
 msgid "Secrets:"
 msgstr ""
 
-#: challenges/templates/challenges/management/edit_challenges.html
+#: challenges/templates/challenges/management/challenge/edit_challenge.html
 msgid "URLs:"
 msgstr ""
 
-#: challenges/templates/challenges/management/edit_challenges.html
+#: challenges/templates/challenges/management/challenge/edit_challenge.html
 msgid "Standard URL:"
 msgstr ""
 
-#: challenges/templates/challenges/management/edit_challenges.html
+#: challenges/templates/challenges/management/challenge/edit_challenge.html
 msgid "Shortened URLs:"
 msgstr ""
 
-#: challenges/templates/challenges/management/list_challenges.html
+#: challenges/templates/challenges/management/challenge/list_challenges.html
 msgid "List all challenges"
 msgstr ""
 
-#: challenges/templates/challenges/management/list_challenges.html
-msgid "Prompt"
+#: challenges/templates/challenges/management/challenge/list_challenges.html
+msgid "Prompt [de]"
 msgstr ""
 
-#: challenges/templates/challenges/management/list_challenges.html
-msgid "Description"
+#: challenges/templates/challenges/management/challenge/list_challenges.html
+msgid "Prompt [en]"
 msgstr ""
 
-#: challenges/templates/challenges/management/list_challenges.html
+#: challenges/templates/challenges/management/challenge/list_challenges.html
+msgid "Description [de]"
+msgstr ""
+
+#: challenges/templates/challenges/management/challenge/list_challenges.html
+msgid "Description [en]"
+msgstr ""
+
+#: challenges/templates/challenges/management/challenge/list_challenges.html
 msgid "Urls"
 msgstr ""
 
-#: challenges/templates/challenges/management/list_challenges.html
+#: challenges/templates/challenges/management/challenge/list_challenges.html
 msgid "Actions"
+msgstr ""
+
+#: challenges/templates/challenges/management/secret/add_secret.html
+msgid "Add secret for challenge"
+msgstr ""
+
+#: challenges/templates/challenges/management/secret/add_secret.html
+msgid "Add secret"
+msgstr ""
+
+#: challenges/templates/challenges/management/secret/del_secret.html
+#, python-format
+msgid "Delete secret %(secret)s for challenge: %(challenge)s"
+msgstr ""
+
+#: challenges/templates/challenges/management/secret/del_secret.html
+msgid "Delete secret"
+msgstr ""
+
+#: challenges/templates/challenges/management/secret/edit_secret.html
+#, python-format
+msgid "Edit secret %(secret)s for challenge: %(challenge)s"
+msgstr ""
+
+#: challenges/templates/challenges/management/secret/edit_secret.html
+msgid "Edit secret"
+msgstr ""
+
+#: challenges/templates/challenges/management/short_link/add_short_link.html
+msgid "Add short-link for challenge"
+msgstr ""
+
+#: challenges/templates/challenges/management/short_link/add_short_link.html
+msgid "Add short-link"
+msgstr ""
+
+#: challenges/templates/challenges/management/short_link/del_short_link.html
+#, python-format
+msgid "Delete short-link %(short_link)s for challenge: %(challenge)s"
+msgstr ""
+
+#: challenges/templates/challenges/management/short_link/del_short_link.html
+msgid "Delete short-link"
+msgstr ""
+
+#: challenges/templates/challenges/management/short_link/edit_short_link.html
+#, python-format
+msgid "Edit short-link %(short_link)s for challenge: %(challenge)s"
+msgstr ""
+
+#: challenges/templates/challenges/management/short_link/edit_short_link.html
+msgid "Edit short-link"
 msgstr ""
 
 #: challenges/views.py
@@ -90,11 +156,39 @@ msgid "This solution is incorrect"
 msgstr ""
 
 #: challenges/views.py
-msgid "The Challenge was successfully updated"
+msgid "The challenge was successfully updated"
 msgstr ""
 
 #: challenges/views.py
-msgid "The Challenge was successfully added"
+msgid "The challenge was successfully deleted"
+msgstr ""
+
+#: challenges/views.py
+msgid "The challenge was successfully added"
+msgstr ""
+
+#: challenges/views.py
+msgid "The secret was successfully updated"
+msgstr ""
+
+#: challenges/views.py
+msgid "The secret was successfully deleted"
+msgstr ""
+
+#: challenges/views.py
+msgid "The secret was successfully added"
+msgstr ""
+
+#: challenges/views.py
+msgid "The short-link was successfully updated"
+msgstr ""
+
+#: challenges/views.py
+msgid "The short-link was successfully deleted"
+msgstr ""
+
+#: challenges/views.py
+msgid "The short-link was successfully added"
 msgstr ""
 
 #: klopapier/settings.py

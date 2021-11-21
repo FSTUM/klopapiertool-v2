@@ -1,5 +1,7 @@
 import os.path
 from pathlib import Path
+
+# pylint: disable-next=no-name-in-module
 from typing import List
 
 from django.conf.locale.de import formats as de_formats
@@ -19,6 +21,7 @@ ALLOWED_HOSTS: List[str] = []
 # Application definition
 
 INSTALLED_APPS = [
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -105,6 +108,8 @@ de_formats.DATE_FORMAT = "d.m.Y"
 de_formats.SHORT_DATE_FORMAT = "d.m."
 
 LOCALE_PATHS = ["locale"]
+
+MODELTRANSLATION_TRANSLATION_FILES = ("challenges.translation",)
 
 # Static files (CSS, JavaScript, Images)
 

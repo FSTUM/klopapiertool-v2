@@ -13,7 +13,7 @@ class UserSolutionSubmissionForm(forms.Form):
 class ChallengeForm(forms.ModelForm):
     class Meta:
         model = Challenge
-        exclude: List[str] = []
+        exclude: List[str] = ["prompt", "description"]
 
 
 class ChallangeBasedForm(forms.ModelForm):

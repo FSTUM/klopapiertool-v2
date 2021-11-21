@@ -6,8 +6,8 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import ugettext as _
 
-from challenges.forms import ChallengeForm, UserSolutionSubmissionForm, ChallengeSecretForm, ChallengeShortLinkForm
-from challenges.models import Challenge, ChallengeShortLink, ChallengeSecret
+from challenges.forms import ChallengeForm, ChallengeSecretForm, ChallengeShortLinkForm, UserSolutionSubmissionForm
+from challenges.models import Challenge, ChallengeSecret, ChallengeShortLink
 from common.utils.typing import AuthWSGIRequest
 from common.views import klopapier_staff_member_required
 
@@ -79,6 +79,7 @@ def add_challenge(request: AuthWSGIRequest) -> HttpResponse:
 
     context = {"form": form}
     return render(request, "challenges/management/challenge/add_challenge.html", context)
+
 
 @klopapier_staff_member_required
 def edit_secret(request: AuthWSGIRequest, secret_pk: int) -> HttpResponse:

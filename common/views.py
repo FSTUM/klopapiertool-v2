@@ -1,10 +1,9 @@
-import json
-from typing import Callable, List, Set
+from typing import Callable, List
 
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.utils.translation import ugettext as _
 
 from common.forms import SelectIdeaForm
@@ -20,8 +19,6 @@ def leaderboard(request: AuthWSGIRequest) -> HttpResponse:
     form = SelectIdeaForm(request.POST or None)
 
     voted_ideas: List[int] = request.session.get("voted_ideas", [])
-    if not isinstance(voted_ideas, list):
-        voted_ideas = list()
     if form.is_valid():
         idea_id = form.cleaned_data["id"]
         # voted_ideas: List[int] = json.loads(voted_ideas_json)

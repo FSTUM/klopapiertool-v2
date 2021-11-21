@@ -21,8 +21,10 @@
     >
         <thead>
             <tr>
-                <th>{% trans "Prompt" %}</th>
-                <th>{% trans "Description" %}</th>
+                <th>{% trans "Prompt [de]" %}</th>
+                <th>{% trans "Prompt [en]" %}</th>
+                <th>{% trans "Description [de]" %}</th>
+                <th>{% trans "Description [en]" %}</th>
                 <th>{% trans "Urls" %}</th>
                 <th>{% trans "Actions" %}</th>
             </tr>
@@ -30,8 +32,10 @@
         <tbody>
             {% for challenge in challenges %}
             <tr>
-                <td>{{ challenge.prompt }}</td>
-                <td>{{ challenge.description }}</td>
+                <td>{{ challenge.prompt_de }}</td>
+                <td>{{ challenge.prompt_en }}</td>
+                <td>{{ challenge.description_de }}</td>
+                <td>{{ challenge.description_en }}</td>
                 <td>
                     <p>
                         <a href="{{ request.scheme }}://{{ request.get_host }}{% url "challenges:submit_challenge" challenge.key %}">

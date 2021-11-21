@@ -29,35 +29,35 @@
         {% csrf_token %}
         {{ form.id.as_hidden }}
     </form>
-        <table
-            id="challengeTable"
-            class="table dataTable"
-        >
-            <thead>
-                <tr>
-                    <th>{% trans "Idee" %}</th>
-                    <th>{% trans "Votes" %}</th>
-                    <th>{% trans "Actions" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for idea in ideas %}
-                <tr>
-                    <td>{{ idea.content }}</td>
-                    <td>{{ idea.votes }}</td>
-                    <td>
-                        {% if idea.id not in voted_ideas %}
-                        <button
-                            class="btn btn-success"
-                            type="submit"
-                            onclick="vote_for('{{ idea.id }}')"
-                        >Vote <span class="bi bi-hand-thumbs-up-fill"></span></button>
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <table
+        id="challengeTable"
+        class="table dataTable"
+    >
+        <thead>
+            <tr>
+                <th>{% trans "Idee" %}</th>
+                <th>{% trans "Votes" %}</th>
+                <th>{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for idea in ideas %}
+            <tr>
+                <td>{{ idea.content }}</td>
+                <td>{{ idea.votes }}</td>
+                <td>
+                    {% if idea.id not in voted_ideas %}
+                    <button
+                        class="btn btn-success"
+                        type="submit"
+                        onclick="vote_for('{{ idea.id }}')"
+                    >Vote <span class="bi bi-hand-thumbs-up-fill"></span></button>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
 

@@ -1,4 +1,3 @@
-# pylint: disable-next=no-name-in-module
 from typing import List
 
 from django.db import models

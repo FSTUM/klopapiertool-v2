@@ -21,3 +21,7 @@ msgstr ""
 #: common/templates/common/leaderboard/leaderboard.html
 msgid "Actions"
 msgstr ""
+
+#: common/views.py
+msgid "saved your vote for the idea '{}'"
+msgstr ""

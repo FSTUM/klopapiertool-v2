@@ -3,9 +3,9 @@
 {% load django_bootstrap5 %}
 
 {% block klopapier_common_headercontent %}
-    {% blocktrans trimmed with short_link=short_link.short_link challenge=short_link.challenge.prompt%}
-        Delete short-link {{ short_link }} for challenge: {{ challenge }}
-    {% endblocktrans %}
+{% blocktrans trimmed with short_link=short_link.short_link challenge=short_link.challenge.prompt%}
+Delete short-link {{ short_link }} for challenge: {{ challenge }}
+{% endblocktrans %}
 {% endblock %}
 
 {% block klopapier_common_content %}
