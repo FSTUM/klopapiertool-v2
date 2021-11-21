@@ -8,7 +8,12 @@
 <script>
     $(document).ready(() => {
         $('#challengeTable').DataTable({
+            order: [
+                [1, 'desc'],
+                [0, 'asc'],
+            ],
             columnDefs: [{ targets: 2, orderable: false }],
+            paging: false,
         });
     });
 </script>
@@ -16,26 +21,51 @@
 
 {% block klopapier_common_content %}
 <div class="table-responsive">
-    <table
-        id="challengeTable"
-        class="table dataTable"
+    <form
+        id="form"
+        method="post"
+        action=""
     >
-        <thead>
-            <tr>
-                <th>{% trans "Idee" %}</th>
-                <th>{% trans "Votes" %}</th>
-                <th>{% trans "Actions" %}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for idea in ideas %}
-            <tr>
-                <td>{{ idea.content }}</td>
-                <td>{{ idea.votes }}</td>
-                <td>TODO</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        {% csrf_token %}
+        {{ form.id.as_hidden }}
+    </form>
+        <table
+            id="challengeTable"
+            class="table dataTable"
+        >
+            <thead>
+                <tr>
+                    <th>{% trans "Idee" %}</th>
+                    <th>{% trans "Votes" %}</th>
+                    <th>{% trans "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for idea in ideas %}
+                <tr>
+                    <td>{{ idea.content }}</td>
+                    <td>{{ idea.votes }}</td>
+                    <td>
+                        {% if idea.id not in voted_ideas %}
+                        <button
+                            class="btn btn-success"
+                            type="submit"
+                            onclick="vote_for('{{ idea.id }}')"
+                        >Vote <span class="bi bi-hand-thumbs-up-fill"></span></button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 </div>
+{% endblock %}
+
+{% block defered_script %}
+<script>
+    function vote_for(idea) {
+        $('#id_id').attr('value', idea);
+        $('#form').submit()
+    }
+</script>
 {% endblock %}
