@@ -30,7 +30,6 @@ ENV DJANGO_SETTINGS_MODULE=staging.staging_settings_modifications
 RUN python manage.py collectstatic --noinput \
     && rm -f *.sqlite3 \
     && python manage.py makemigrations --noinput \
-    && python manage.py migrate --noinput --database=getraenke getraenke|grep -v "... OK" \
     && python manage.py migrate --noinput|grep -v "... OK" \
     && echo "import common.fixture as fixture;fixture.showroom_fixture_state_no_confirmation()"|python manage.py shell
 
