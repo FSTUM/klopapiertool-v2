@@ -8,20 +8,17 @@ register = template.Library()
 @register.simple_tag
 def random_title():
     titles = [
-        "SET's roll",
-        "SET's Rock'n Roll",
-        "Never SET Me Down",
-        "I Won't SET You Down",
-        "SET's Go Crazy",
-        "SET It Rock",
-        "The trendSETters",
-        "Enjoy the sunSET",
-        "Lets SETle this",
-        "SET me if you can",
-        "Das UmSETz Referat",
-        "Die besten ReiSETipps beim SET-Referat",
-        "May the SET be ever in your favor",
-        "S.E.T. - SEe The awesomeness",
-        "S.E.T. - SEe The excellence",
+        "Das geht kloa",
+        "Ob du be-klo-ppt bist, hab ich jefragt",
+        "Star Wars II: Angriff der Klo(n)krieger",
+        "Da kann i net klogen",
+        "Ich hab nen Klo-ß im Hals",
+        "Achtung ein Zy-klo-n!!",
+        "Vekloziraptor",
+        "Wie nennt man einen Einäugigen auf dem Klo? Zyklop",
+        "Klo-pf dir auf die Schulter für diese coole neue Klopapier",
+        "Tobi Grasberger",
+        "Wie nennt man ein dixiklo an der Straßenecke mit Essensversorgung? Ec-klo-kal",
+        "Klockdown: Schließung der Klos ab 22 Uhr",
     ]
     return random.choice(titles)  # nosec: fully defined
