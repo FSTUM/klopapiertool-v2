@@ -2,8 +2,9 @@ from typing import Callable, List
 
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 
 from common.forms import SelectIdeaForm
@@ -33,3 +34,8 @@ def leaderboard(request: AuthWSGIRequest) -> HttpResponse:
 
     context = {"ideas": ideas, "form": form, "voted_ideas": voted_ideas}
     return render(request, "common/leaderboard/leaderboard.html", context)
+
+
+def login_failed(request: WSGIRequest) -> HttpResponse:
+    messages.error(request, _("You are not allowed to login to the application."))
+    return redirect("main-view")

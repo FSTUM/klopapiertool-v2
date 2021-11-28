@@ -33,13 +33,25 @@ sudo apt-get install -y gettext npm
 python3 -m pip install -r requirements_dev.txt
 ```
 
-2. Create the SQLite-database by running the following command inside the project directory:
+2. Set the `DJANGO_SETTINGS_MODULE` environment option:
+
+This Step is needed, because we have to have multiple settings files.
+The `klopapier.settings.keycloak_settings`-file uses keycloak, but because we DONT want to commit the secrets to git, this config is not useful for development (except if you want to test if keycloak works).  
+The `klopapier.settings.dev_settings`-file uses django's default [modelbackend](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/) for authorisation.
+This backend can be populated with a user using the [fixture](#sample-data-fixtures), or the `createsuperuser` command mentioned below.
+The `klopapier.settings.staging_settings`-file is only used in the staging environment.
+
+```bash
+export DJANGO_SETTINGS_MODULE=klopapier.settings.dev_settings
+```
+
+3. Create the SQLite-database by running the following command inside the project directory:
 
 ```bash
 python3 manage.py migrate
 ```
 
-3. Create an admin-account by running the following command inside the project directory:
+4. (Optional step, a user can be created using the [fixture](#sample-data-fixtures) below) Create an admin-account by running the following command inside the project directory:
 
 ```bash
 python3 manage.py createsuperuser
@@ -102,14 +114,14 @@ nessesary files to git.**
 
 # Staging
 
-An staging environment is offered at klopapier.frank.elsinga.de
-The username is password
-The password is username
+An staging environment is offered at [`klopapier.frank.elsinga.de`](https://klopapier.frank.elsinga.de)  
+The username is `password`.  
+The password is `username`.
 
-## Building and running the dockerfile for local developement
+## Building and running the dockerfile for local development
 
-1. you need to save your enveronmment variables in an `.env`-file.
-   The further guide assumes content simmilar to the following in `staging/.env`.
+1. you need to save your environment variables in an `.env`-file.
+   The further guide assumes content similar to the following in `staging/.env`.
 
 ```
 DJANGO_DEBUG="True"

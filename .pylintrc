@@ -1,8 +1,8 @@
 [MASTER]
-ignore=static,manage.py
+ignore=static,manage.py,rallyetool.settings
 jobs=0
 load-plugins=pylint_django
-django-settings-module=klopapier.settings
+django-settings-module=klopapier.settings.dev_settings
 
 [MESSAGES CONTROL]
 disable=missing-function-docstring, # too much work

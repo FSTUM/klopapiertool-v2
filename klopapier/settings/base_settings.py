@@ -2,13 +2,13 @@ import os.path
 from pathlib import Path
 
 # pylint: disable-next=no-name-in-module
-from typing import List
+from typing import List, Optional
 
 from django.conf.locale.de import formats as de_formats
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-xhb0p=vq7qux@vydqi88x&k$(ecow!9kouny6go2if=3op5pw)"  # nosec: not used in prod
@@ -75,17 +75,21 @@ DATABASES = {
     },
 }
 
-# Login
+# Auth
 LOGIN_REDIRECT_URL = "common:index"
 LOGOUT_REDIRECT_URL = "login"
+LOGIN_REDIRECT_URL_FAILURE = "/login/failed"
 LOGIN_URL = "login/"
 LOGOUT_URL = "logout/"
+
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+
+USE_KEYCLOAK: Optional[bool] = None
 
 # Internationalization
 LANGUAGE_CODE = "en"

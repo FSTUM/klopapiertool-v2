@@ -3,8 +3,24 @@
 # type: ignore
 
 import logging.config
+import os
 
-from klopapier.settings import *
+USE_KEYCLOAK = os.getenv("USE_KEYCLOAK", "False") == "True"
+if USE_KEYCLOAK:
+    from klopapier.settings.keycloak_settings import *
+
+    OIDC_RP_CLIENT_ID = os.environ["OIDC_RP_CLIENT_ID"]
+    OIDC_RP_CLIENT_SECRET = os.environ["OIDC_RP_CLIENT_SECRET"]
+else:
+    from klopapier.settings.dev_settings import *
+
+DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+
+SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+# generate your own secret key using
+# import random, string
+# print("".join(random.choice(string.printable) for _ in range(50)))
 
 # staticfiles
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")

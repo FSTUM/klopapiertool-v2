@@ -25,3 +25,7 @@ msgstr ""
 #: common/views.py
 msgid "saved your vote for the idea '{}'"
 msgstr ""
+
+#: common/views.py
+msgid "You are not allowed to login to the application."
+msgstr "Dir ist nicht erlaubt dich in diese Applikation einzuloggen."
