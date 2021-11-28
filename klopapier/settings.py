@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List
 
 from django.conf.locale.de import formats as de_formats
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

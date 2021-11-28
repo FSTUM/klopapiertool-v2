@@ -4,7 +4,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import QuerySet
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from challenges.forms import ChallengeForm, ChallengeSecretForm, ChallengeShortLinkForm, UserSolutionSubmissionForm
 from challenges.models import Challenge, ChallengeSecret, ChallengeShortLink
