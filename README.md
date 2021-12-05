@@ -106,11 +106,11 @@ fixture.showroom_fixture_state()
 
 This operation might take a few seconds. Don't worry.
 
-## Adding Depenencies
+## Adding Dependencies
 
 If you want to add a dependency that is in `pip` add it to the appropriate `requirements`-file.  
 If you want to add a dependency that is in `npm` run `npm i DEPENDENCY`. **Make shure that you do only commit the
-nessesary files to git.**
+necessary files to git.**
 
 # Staging
 
