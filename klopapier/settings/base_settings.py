@@ -1,7 +1,5 @@
 import os.path
 from pathlib import Path
-
-# pylint: disable-next=no-name-in-module
 from typing import List, Optional
 
 from django.conf.locale.de import formats as de_formats
