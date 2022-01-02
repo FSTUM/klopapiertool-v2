@@ -53,9 +53,9 @@ def _generate_ideas():
 
 def _generate_challenges():
     challenges = []
-    for _ in range(random.randint(5, 15)):
+    keys = set(rand_firstname() + "_" + rand_company_name() for _ in range(random.randint(5, 15)))
+    for key in keys:
         url = random.choice(("https://fsmpi.de", "https://fsmpi.de/aushaenge", "https://fsmpi.de/units"))
-        key = rand_firstname() + "_" + rand_company_name()
         challenges.append(
             m_challenges.Challenge.objects.create(
                 key=key,
