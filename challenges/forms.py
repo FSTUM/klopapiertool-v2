@@ -1,5 +1,3 @@
-from typing import List
-
 from django import forms
 from django.utils.translation import gettext as _
 
@@ -13,12 +11,12 @@ class UserSolutionSubmissionForm(forms.Form):
 class ChallengeForm(forms.ModelForm):
     class Meta:
         model = Challenge
-        exclude: List[str] = ["prompt", "description"]
+        exclude: list[str] = ["prompt", "description"]
 
 
 class ChallangeBasedForm(forms.ModelForm):
     class Meta:
-        exclude: List[str] = ["challenge"]
+        exclude: list[str] = ["challenge"]
 
     def __init__(self, *args, **kwargs):
         self.challenge: Challenge = kwargs.pop("challenge")

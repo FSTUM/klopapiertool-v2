@@ -1,6 +1,6 @@
 import os.path
 from pathlib import Path
-from typing import List, Optional
+from typing import Optional
 
 from django.conf.locale.de import formats as de_formats
 from django.utils.translation import gettext_lazy as _
@@ -14,7 +14,7 @@ SECRET_KEY = "django-insecure-xhb0p=vq7qux@vydqi88x&k$(ecow!9kouny6go2if=3op5pw)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS: List[str] = []
+ALLOWED_HOSTS: list[str] = []
 
 # Application definition
 

@@ -1,4 +1,4 @@
-from typing import Callable, List
+from typing import Callable
 
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
@@ -15,14 +15,14 @@ klopapier_staff_member_required: Callable = staff_member_required(login_url="log
 
 
 def leaderboard(request: AuthWSGIRequest) -> HttpResponse:
-    ideas: List[Idea] = list(Idea.objects.all())
+    ideas: list[Idea] = list(Idea.objects.all())
 
     form = SelectIdeaForm(request.POST or None)
 
-    voted_ideas: List[int] = request.session.get("voted_ideas", [])
+    voted_ideas: list[int] = request.session.get("voted_ideas", [])
     if form.is_valid():
         idea_id = form.cleaned_data["id"]
-        # voted_ideas: List[int] = json.loads(voted_ideas_json)
+        # voted_ideas: list[int] = json.loads(voted_ideas_json)
         if idea_id not in voted_ideas:
             idea: Idea = get_object_or_404(Idea, id=idea_id)
             idea.votes += 1

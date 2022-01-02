@@ -1,5 +1,3 @@
-from typing import List
-
 from django.db import models
 
 
@@ -13,7 +11,7 @@ class Challenge(models.Model):
         return value in self.secrets
 
     @property
-    def secrets(self) -> List[str]:
+    def secrets(self) -> list[str]:
         return [chs.secret for chs in self.challengesecret_set.all()]
 
     def __str__(self):
